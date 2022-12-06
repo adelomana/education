@@ -1,2 +1,2 @@
 # education
-this is a description
+A collection of computational tools develop supporting student projects.
