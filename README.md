@@ -1,2 +1,2 @@
 # education
-A collection of computational tools develop supporting student projects.
+A collection of computational tools developed supporting student projects.
