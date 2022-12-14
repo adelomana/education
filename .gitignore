@@ -2,3 +2,7 @@
 scGBM/.ipynb_checkpoints/
 
 kevin/.ipynb_checkpoints/
+
+*.svg
+
+kevin/old/.ipynb_checkpoints/
