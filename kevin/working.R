@@ -1,11 +1,9 @@
 #
 # This script performs ontology enrichment on ATG7-201 and ATG7-202 clusters
 #
-
-##########################################33  doubule cehck this again, which function is the good one?https://yulab-smu.top/biomedical-knowledge-mining-book/reactomepa.html
-
 library(clusterProfiler)
 library(ReactomePA)
+library(enrichplot)
 
 #
 # read data
@@ -25,12 +23,37 @@ print(dim(skyblue_ids))
 #
 # perform analysis
 #
-enrichment_gold = enrichPathway(gene=gold_ids$ENTREZID, readable=TRUE)
-enrichment_skyblue = enrichPathway(gene=skyblue_ids$ENTREZID, readable=TRUE)
+enrichment_gold = enrichPathway(gene=gold_ids$ENTREZID, readable=TRUE, minGSSize=10)
+enrichment_skyblue = enrichPathway(gene=skyblue_ids$ENTREZID, readable=TRUE, minGSSize=10)
+
+#
+# subset results
+#
+rule = enrichment_gold@result['qvalue'] < 0.01
+subset_gold = enrichment_gold[rule, ]
+dim(subset_gold)
+View(subset_gold)
+
+rule = enrichment_skyblue@result['qvalue'] < 0.01
+subset_skyblue = enrichment_skyblue[rule, ]
+dim(subset_skyblue)
+View(subset_skyblue)
 
 #
 # store information
 #
-# rule = enrichment_@result['p.adjust'] < 0.05
-# enrichment@result[rule, ]
-# dim(enrichment@result[rule, ])
+
+
+#
+# make figure
+#
+all_identifiers = list()
+all_identifiers[['gold set']] = gold_ids$ENTREZID
+all_identifiers[['skyblue set']] = skyblue_ids$ENTREZID
+
+ck = compareCluster(all_identifiers, fun="enrichPathway", pvalueCutoff=0.01)
+sm = pairwise_termsim(ck)
+dotplot(ck, size='count', showCategory=30)
+
+
+
