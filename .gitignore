@@ -6,3 +6,11 @@ kevin/.ipynb_checkpoints/
 *.svg
 
 kevin/old/.ipynb_checkpoints/
+
+*.sqlite
+
+kevin/.Rhistory
+
+*.png
+
+*.csv
