@@ -14,3 +14,7 @@ kevin/.Rhistory
 *.png
 
 *.csv
+
+*.tsv
+
+roger/.ipynb_checkpoints/
