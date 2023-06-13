@@ -22,9 +22,13 @@ db = useEnsembl(biomart="genes", dataset="hsapiens_gene_ensembl", version=109)
 working_atributes = c('ensembl_gene_id', 'description', 
                       'hgnc_symbol', 'uniprot_gn_symbol', 'uniprot_gn_id')
 table_a= getBM(attributes=working_atributes, mart=db)
+head(table_a)
+dim(table_a)
 View(table_a)
 
 working_atributes = c('ensembl_gene_id', 
                       'uniprot_isoform', 'uniprotswissprot', 'uniprotsptrembl')
 table_b= getBM(attributes=working_atributes, mart=db)
+head(table_b)
+dim(table_b)
 View(table_b)
