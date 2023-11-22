@@ -15,7 +15,7 @@ def costly_function(arg):
 #
 # user-defined variables
 #
-number_of_threads = 8
+number_of_threads = 4
 number_of_tasks = int(1e5)
 
 #
