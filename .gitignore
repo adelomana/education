@@ -18,3 +18,8 @@ kevin/.Rhistory
 *.tsv
 
 roger/.ipynb_checkpoints/
+/entropy/.ipynb_checkpoints
+/entropy/.virtual_documents
+/olatz/.ipynb_checkpoints
+/olatz/.virtual_documents
+*.xlsx
